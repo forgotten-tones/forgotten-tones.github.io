@@ -11,6 +11,7 @@
 
 body, html {
   height: 100%;
+  background-color: #000;
 }
 
 html, body {
@@ -19,22 +20,12 @@ html, body {
 }
 
 .bg {
-  /* The image used */
   background-image: url("assets/images/m16-eagle-nebula-hubble-palette.jpg");
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-  /* Center content */
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
 }
 
 .bg:after {
@@ -45,7 +36,23 @@ html, body {
   left: 0;
   bottom: 0;
   right: 0;
-  background: radial-gradient(circle, transparent 50%, black 150%);
+  background: radial-gradient(circle, transparent 50%, black 100%);
+}
+
+.content {
+  position: absolute;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  /* Center content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
 }
 
 .logo {
@@ -88,14 +95,16 @@ a, .fs1, .fs2 {
 
 a {
     text-decoration: none;
+    z-index: 100;
 }
 
     </style>
   </head>
   <body>
-    <div class="bg">
+    <div class="content">
 
-      <div class="clearfix ptl">
+      <div class="clearfix ptl"> <!-- start social -->
+
         <div class="glyph fs2">
           <div class="clearfix bshadow0 pbs">
             <a href="https://soundcloud.com/forgotten-tones/tracks">
@@ -111,7 +120,6 @@ a {
             </a>
           </div>
         </div>
-        
         
         <div class="glyph fs1">
           <div class="clearfix bshadow0 pbs">
@@ -152,14 +160,22 @@ a {
             </a>
           </div>
         </div>
-
         
-      </div>
+      </div> <!-- end social -->
+
       <div class="clearfix">
         <div>
           <img class="logo" src="assets/images/logo-v1.1-aged-x1000.png" />
         </div>
       </div>
-    </div>
+
+      <div class="clearfix ptl">
+        <!-- used to balance the placement of the cover image -->
+      </div>
+
+    </div> <!-- end content -->
+
+    <div class="bg"></div>
+
   </body>
 </html>
